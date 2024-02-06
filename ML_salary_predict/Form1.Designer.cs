@@ -48,19 +48,23 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.comboBoxRegion = new System.Windows.Forms.ComboBox();
             this.comboBoxEducation = new System.Windows.Forms.ComboBox();
-            this.textBoxDesiredSalary = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.nUDDesiredSalary = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxWork = new System.Windows.Forms.ComboBox();
+            this.labelErrorSend = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.nUDPort = new System.Windows.Forms.NumericUpDown();
             this.labelErrorConnect = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
-            this.textBoxPort = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxIP = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.labelErrorSend = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDDesiredSalary)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDPort)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSend
@@ -74,6 +78,7 @@
             this.btnSend.TabIndex = 1;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = false;
+            this.btnSend.Visible = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // label1
@@ -110,7 +115,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(8, 134);
+            this.label4.Location = new System.Drawing.Point(5, 134);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 18);
             this.label4.TabIndex = 5;
@@ -190,7 +195,7 @@
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(155, 22);
             this.textBoxLastName.TabIndex = 12;
-            this.textBoxLastName.Enter += new System.EventHandler(this.textBoxLastName_Enter);
+            this.textBoxLastName.Enter += new System.EventHandler(this.ErrorOnEntry);
             // 
             // textBoxFirstName
             // 
@@ -199,7 +204,7 @@
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(155, 22);
             this.textBoxFirstName.TabIndex = 13;
-            this.textBoxFirstName.Enter += new System.EventHandler(this.textBoxFirstName_Enter);
+            this.textBoxFirstName.Enter += new System.EventHandler(this.ErrorOnEntry);
             // 
             // textBoxSurname
             // 
@@ -208,11 +213,12 @@
             this.textBoxSurname.Name = "textBoxSurname";
             this.textBoxSurname.Size = new System.Drawing.Size(155, 22);
             this.textBoxSurname.TabIndex = 14;
-            this.textBoxSurname.Enter += new System.EventHandler(this.textBoxSurname_Enter);
+            this.textBoxSurname.Enter += new System.EventHandler(this.ErrorOnEntry);
             // 
             // radioBtnMale
             // 
             this.radioBtnMale.AutoSize = true;
+            this.radioBtnMale.Checked = true;
             this.radioBtnMale.Location = new System.Drawing.Point(92, 134);
             this.radioBtnMale.Name = "radioBtnMale";
             this.radioBtnMale.Size = new System.Drawing.Size(55, 20);
@@ -220,7 +226,6 @@
             this.radioBtnMale.TabStop = true;
             this.radioBtnMale.Text = "Male";
             this.radioBtnMale.UseVisualStyleBackColor = true;
-            this.radioBtnMale.Enter += new System.EventHandler(this.radioBtnMale_Enter);
             // 
             // radioBtnFemale
             // 
@@ -229,10 +234,8 @@
             this.radioBtnFemale.Name = "radioBtnFemale";
             this.radioBtnFemale.Size = new System.Drawing.Size(71, 20);
             this.radioBtnFemale.TabIndex = 16;
-            this.radioBtnFemale.TabStop = true;
             this.radioBtnFemale.Text = "Female";
             this.radioBtnFemale.UseVisualStyleBackColor = true;
-            this.radioBtnFemale.Enter += new System.EventHandler(this.radioBtnFemale_Enter);
             // 
             // dateTimePicker
             // 
@@ -245,6 +248,7 @@
             // comboBoxRegion
             // 
             this.comboBoxRegion.BackColor = System.Drawing.Color.OldLace;
+            this.comboBoxRegion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRegion.FormattingEnabled = true;
             this.comboBoxRegion.Items.AddRange(new object[] {
             "Vladimirsky",
@@ -257,38 +261,31 @@
             this.comboBoxRegion.Name = "comboBoxRegion";
             this.comboBoxRegion.Size = new System.Drawing.Size(195, 24);
             this.comboBoxRegion.TabIndex = 18;
-            this.comboBoxRegion.Enter += new System.EventHandler(this.comboBoxRegion_Enter);
             // 
             // comboBoxEducation
             // 
             this.comboBoxEducation.BackColor = System.Drawing.Color.OldLace;
+            this.comboBoxEducation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEducation.FormattingEnabled = true;
             this.comboBoxEducation.Items.AddRange(new object[] {
-            "9th grade school",
             "11th grade school",
-            "Secondary vocational education (SPO)",
+            "9th grade school",
             "Higher education institution (HEI)",
+            "Secondary vocational education (SPO)",
             "Technical College (TC)"});
             this.comboBoxEducation.Location = new System.Drawing.Point(414, 69);
             this.comboBoxEducation.Name = "comboBoxEducation";
             this.comboBoxEducation.Size = new System.Drawing.Size(195, 24);
+            this.comboBoxEducation.Sorted = true;
             this.comboBoxEducation.TabIndex = 19;
-            this.comboBoxEducation.Enter += new System.EventHandler(this.comboBoxEducation_Enter);
-            // 
-            // textBoxDesiredSalary
-            // 
-            this.textBoxDesiredSalary.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxDesiredSalary.Location = new System.Drawing.Point(414, 129);
-            this.textBoxDesiredSalary.Name = "textBoxDesiredSalary";
-            this.textBoxDesiredSalary.Size = new System.Drawing.Size(195, 22);
-            this.textBoxDesiredSalary.TabIndex = 20;
-            this.textBoxDesiredSalary.Enter += new System.EventHandler(this.textBoxDesiredSalary_Enter);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.nUDDesiredSalary);
+            this.groupBox1.Controls.Add(this.comboBoxWork);
             this.groupBox1.Controls.Add(this.labelErrorSend);
             this.groupBox1.Controls.Add(this.textBoxLastName);
-            this.groupBox1.Controls.Add(this.textBoxDesiredSalary);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSend);
             this.groupBox1.Controls.Add(this.comboBoxEducation);
@@ -314,11 +311,67 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATA FILLING AREA";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(5, 167);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 18);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Work:";
+            // 
+            // nUDDesiredSalary
+            // 
+            this.nUDDesiredSalary.Location = new System.Drawing.Point(414, 130);
+            this.nUDDesiredSalary.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.nUDDesiredSalary.Name = "nUDDesiredSalary";
+            this.nUDDesiredSalary.Size = new System.Drawing.Size(195, 22);
+            this.nUDDesiredSalary.TabIndex = 26;
+            // 
+            // comboBoxWork
+            // 
+            this.comboBoxWork.BackColor = System.Drawing.Color.OldLace;
+            this.comboBoxWork.DisplayMember = "0";
+            this.comboBoxWork.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxWork.FormattingEnabled = true;
+            this.comboBoxWork.Items.AddRange(new object[] {
+            "Part-time job",
+            "Courier",
+            "Driver",
+            "Seller",
+            "Cashier",
+            "Administrator",
+            "Operator",
+            "Programmer",
+            "Manager"});
+            this.comboBoxWork.Location = new System.Drawing.Point(92, 166);
+            this.comboBoxWork.Name = "comboBoxWork";
+            this.comboBoxWork.Size = new System.Drawing.Size(155, 24);
+            this.comboBoxWork.TabIndex = 25;
+            // 
+            // labelErrorSend
+            // 
+            this.labelErrorSend.AutoSize = true;
+            this.labelErrorSend.BackColor = System.Drawing.Color.Red;
+            this.labelErrorSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelErrorSend.ForeColor = System.Drawing.Color.White;
+            this.labelErrorSend.Location = new System.Drawing.Point(0, 239);
+            this.labelErrorSend.Name = "labelErrorSend";
+            this.labelErrorSend.Size = new System.Drawing.Size(180, 13);
+            this.labelErrorSend.TabIndex = 24;
+            this.labelErrorSend.Text = "Error! Not all fields are filled in";
+            this.labelErrorSend.Visible = false;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.nUDPort);
             this.groupBox2.Controls.Add(this.labelErrorConnect);
             this.groupBox2.Controls.Add(this.btnConnect);
-            this.groupBox2.Controls.Add(this.textBoxPort);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.textBoxIP);
             this.groupBox2.Controls.Add(this.label10);
@@ -329,6 +382,19 @@
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DATABASE CONNECTION AREA";
+            // 
+            // nUDPort
+            // 
+            this.nUDPort.BackColor = System.Drawing.Color.OldLace;
+            this.nUDPort.Location = new System.Drawing.Point(296, 30);
+            this.nUDPort.Maximum = new decimal(new int[] {
+            70000,
+            0,
+            0,
+            0});
+            this.nUDPort.Name = "nUDPort";
+            this.nUDPort.Size = new System.Drawing.Size(120, 22);
+            this.nUDPort.TabIndex = 24;
             // 
             // labelErrorConnect
             // 
@@ -356,15 +422,6 @@
             this.btnConnect.UseVisualStyleBackColor = false;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // textBoxPort
-            // 
-            this.textBoxPort.BackColor = System.Drawing.Color.OldLace;
-            this.textBoxPort.Location = new System.Drawing.Point(296, 32);
-            this.textBoxPort.Name = "textBoxPort";
-            this.textBoxPort.Size = new System.Drawing.Size(75, 22);
-            this.textBoxPort.TabIndex = 23;
-            this.textBoxPort.Enter += new System.EventHandler(this.textBoxPort_Enter);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -382,7 +439,7 @@
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.Size = new System.Drawing.Size(187, 22);
             this.textBoxIP.TabIndex = 21;
-            this.textBoxIP.Enter += new System.EventHandler(this.textBoxIP_Enter);
+            this.textBoxIP.Enter += new System.EventHandler(this.ErrorOnEntry);
             // 
             // label10
             // 
@@ -394,19 +451,6 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "IP:";
             // 
-            // labelErrorSend
-            // 
-            this.labelErrorSend.AutoSize = true;
-            this.labelErrorSend.BackColor = System.Drawing.Color.Red;
-            this.labelErrorSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelErrorSend.ForeColor = System.Drawing.Color.White;
-            this.labelErrorSend.Location = new System.Drawing.Point(0, 239);
-            this.labelErrorSend.Name = "labelErrorSend";
-            this.labelErrorSend.Size = new System.Drawing.Size(180, 13);
-            this.labelErrorSend.TabIndex = 24;
-            this.labelErrorSend.Text = "Error! Not all fields are filled in";
-            this.labelErrorSend.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,10 +461,12 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ML salary predict";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -428,8 +474,10 @@
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDDesiredSalary)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDPort)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,17 +503,19 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.ComboBox comboBoxRegion;
         private System.Windows.Forms.ComboBox comboBoxEducation;
-        private System.Windows.Forms.TextBox textBoxDesiredSalary;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBoxIP;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.TextBox textBoxPort;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label labelErrorConnect;
         private System.Windows.Forms.Label labelErrorSend;
+        private System.Windows.Forms.ComboBox comboBoxWork;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown nUDDesiredSalary;
+        private System.Windows.Forms.NumericUpDown nUDPort;
     }
 }
 
