@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML_salary_predict", "ML_salary_predict\ML_salary_predict.csproj", "{58C38ABE-A5B9-4D8F-992C-A40FF1A7E0CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58C38ABE-A5B9-4D8F-992C-A40FF1A7E0CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C38ABE-A5B9-4D8F-992C-A40FF1A7E0CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C38ABE-A5B9-4D8F-992C-A40FF1A7E0CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C38ABE-A5B9-4D8F-992C-A40FF1A7E0CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16074F17-81D2-4EAE-A3E9-F08927842B68}
+	EndGlobalSection
+EndGlobal
