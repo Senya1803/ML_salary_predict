@@ -79,7 +79,7 @@
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Visible = false;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            this.btnSend.Click += new System.EventHandler(this.BtnSend_Click);
             // 
             // label1
             // 
@@ -420,7 +420,7 @@
             this.btnConnect.TabIndex = 21;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = false;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            this.btnConnect.Click += new System.EventHandler(this.BtnConnect_Click);
             // 
             // label11
             // 

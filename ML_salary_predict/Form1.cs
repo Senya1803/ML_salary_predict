@@ -18,7 +18,7 @@ namespace ML_salary_predict
         }
 
         // Проверка на заполненность полей для подключения (27-40 стр)
-        private void btnConnect_Click(object sender, EventArgs e)
+        private void BtnConnect_Click(object sender, EventArgs e)
         {
             string ipAddress = textBoxIP.Text;
             int port = (int)nUDPort.Value;
@@ -36,12 +36,12 @@ namespace ML_salary_predict
         }
 
         // Проверка на заполненность полей для отправки данных (46-89 стр)
-        private void btnSend_Click(object sender, EventArgs e)
+        private void BtnSend_Click(object sender, EventArgs e)
         {
             string last_name = textBoxLastName.Text;
             string first_name = textBoxFirstName.Text;
             string patronymic = textBoxSurname.Text;
-            bool gender = radioBtnMale.Checked ? true : false;
+            bool gender = radioBtnMale.Checked;
             DateTime date_of_birth = dateTimePicker.Value; // год - месяц - день
             string education_name = comboBoxEducation.Text;
             int place_of_work = comboBoxRegion.SelectedIndex + 1;
