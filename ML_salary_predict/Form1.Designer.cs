@@ -60,6 +60,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxIP = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.lbPredict = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDDesiredSalary)).BeginInit();
@@ -72,14 +73,14 @@
             this.btnSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSend.Location = new System.Drawing.Point(501, 184);
+            this.btnSend.Location = new System.Drawing.Point(550, 184);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(108, 30);
             this.btnSend.TabIndex = 1;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Visible = false;
-            this.btnSend.Click += new System.EventHandler(this.BtnSend_Click);
+            this.btnSend.Click += new System.EventHandler(this.BtnSend_ClickAsync);
             // 
             // label1
             // 
@@ -168,9 +169,10 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(639, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip1_ItemClicked);
             // 
             // toolStripMenuItem1
             // 
@@ -242,7 +244,7 @@
             this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.OldLace;
             this.dateTimePicker.Location = new System.Drawing.Point(414, 99);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(195, 22);
+            this.dateTimePicker.Size = new System.Drawing.Size(244, 22);
             this.dateTimePicker.TabIndex = 17;
             // 
             // comboBoxRegion
@@ -259,7 +261,7 @@
             "Murmansk"});
             this.comboBoxRegion.Location = new System.Drawing.Point(414, 37);
             this.comboBoxRegion.Name = "comboBoxRegion";
-            this.comboBoxRegion.Size = new System.Drawing.Size(195, 24);
+            this.comboBoxRegion.Size = new System.Drawing.Size(244, 24);
             this.comboBoxRegion.TabIndex = 18;
             // 
             // comboBoxEducation
@@ -275,7 +277,7 @@
             "Technical College (TC)"});
             this.comboBoxEducation.Location = new System.Drawing.Point(414, 69);
             this.comboBoxEducation.Name = "comboBoxEducation";
-            this.comboBoxEducation.Size = new System.Drawing.Size(195, 24);
+            this.comboBoxEducation.Size = new System.Drawing.Size(244, 24);
             this.comboBoxEducation.Sorted = true;
             this.comboBoxEducation.TabIndex = 19;
             // 
@@ -306,7 +308,7 @@
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.groupBox1.Location = new System.Drawing.Point(12, 151);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(615, 255);
+            this.groupBox1.Size = new System.Drawing.Size(666, 255);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATA FILLING AREA";
@@ -330,7 +332,7 @@
             0,
             0});
             this.nUDDesiredSalary.Name = "nUDDesiredSalary";
-            this.nUDDesiredSalary.Size = new System.Drawing.Size(195, 22);
+            this.nUDDesiredSalary.Size = new System.Drawing.Size(244, 22);
             this.nUDDesiredSalary.TabIndex = 26;
             // 
             // comboBoxWork
@@ -378,7 +380,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.Location = new System.Drawing.Point(12, 46);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(615, 86);
+            this.groupBox2.Size = new System.Drawing.Size(666, 86);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DATABASE CONNECTION AREA";
@@ -386,9 +388,9 @@
             // nUDPort
             // 
             this.nUDPort.BackColor = System.Drawing.Color.OldLace;
-            this.nUDPort.Location = new System.Drawing.Point(296, 30);
+            this.nUDPort.Location = new System.Drawing.Point(364, 30);
             this.nUDPort.Maximum = new decimal(new int[] {
-            70000,
+            65535,
             0,
             0,
             0});
@@ -414,7 +416,7 @@
             this.btnConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnConnect.Location = new System.Drawing.Point(501, 27);
+            this.btnConnect.Location = new System.Drawing.Point(550, 27);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(108, 30);
             this.btnConnect.TabIndex = 21;
@@ -426,7 +428,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(250, 32);
+            this.label11.Location = new System.Drawing.Point(318, 32);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(40, 18);
             this.label11.TabIndex = 22;
@@ -451,12 +453,23 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "IP:";
             // 
+            // lbPredict
+            // 
+            this.lbPredict.AutoSize = true;
+            this.lbPredict.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbPredict.Location = new System.Drawing.Point(160, 420);
+            this.lbPredict.Name = "lbPredict";
+            this.lbPredict.Size = new System.Drawing.Size(19, 20);
+            this.lbPredict.TabIndex = 24;
+            this.lbPredict.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(639, 455);
+            this.ClientSize = new System.Drawing.Size(744, 455);
+            this.Controls.Add(this.lbPredict);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label9);
@@ -516,6 +529,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown nUDDesiredSalary;
         private System.Windows.Forms.NumericUpDown nUDPort;
+        private System.Windows.Forms.Label lbPredict;
     }
 }
 
